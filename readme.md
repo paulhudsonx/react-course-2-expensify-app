@@ -19,3 +19,14 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 ssh -T git@github.com
+
+Regenerate node_modules:
+
+yarn install
+
+To run webpack build:
+
+yarn run build
+
+
+yarn add extract-text-webpack-plugin@3.0.2
