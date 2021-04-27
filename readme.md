@@ -7,7 +7,7 @@ git log - View recent commits
 git remote add origin git@github.com:paulhudsonx/react-course-2-expensify-app.git
 git remote -v
 
-git push -u origin main
+git push -u origin master
 
 
 To generate public/private rsa key pair:
