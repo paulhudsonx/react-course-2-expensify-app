@@ -62,7 +62,7 @@ module.exports = (env) => {
     devtool: isProduction ? `source-map` : `inline-source-map`, // Allows original source file line numbers in Webpack debugger window
     devServer: {
       contentBase: path.join(__dirname, 'public'),
-      historyApiFallback: true,
+      historyApiFallback: true, // Ensures index.html is served for all 404's
       port: 1234
     }
     //devtool: "cheap-module-eval-source-map"

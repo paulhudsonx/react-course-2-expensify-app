@@ -30,3 +30,14 @@ yarn run build
 
 
 yarn add extract-text-webpack-plugin@3.0.2
+
+yarn add express@4.15.4
+
+###Heroku Installation
+sudo snap install --classic heroku
+Ensure vi ~/.local/share/heroku/config.json has object {} to prevent unexpected EOF message
+heroku --version
+heroku login
+
+Create a unique heroku app:
+heroku create react-course-2-expensify-ph 
