@@ -82,4 +82,8 @@ Run the Jest test suite:
 `yarn run dev-server`
 `yarn test -- --watch`
 
+##Firebase Setup
+
+yarn add firebase@4.2.0
+
 
