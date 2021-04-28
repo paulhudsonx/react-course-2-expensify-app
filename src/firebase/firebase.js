@@ -1,5 +1,5 @@
 // Take ALL named exports from firebase onto a firebase object
-import * as firebase from "firebase";
+import firebase from "firebase/firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1Tul8CaP01lDWykp5OmmJlBFt8gNVLLk",
@@ -10,10 +10,13 @@ const firebaseConfig = {
   messagingSenderId: "844106346633",
   appId: "1:844106346633:web:c3826e10096dc9ad535658",
   measurementId: "G-JCHQWJ8JSP"
-}
+};
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-firebase.database().ref().set({
+const database = firebase.database()
+
+database.ref().set({
   name: `Paul Hudson`
 })
