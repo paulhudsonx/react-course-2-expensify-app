@@ -59,4 +59,4 @@ store.dispatch(decrement({decrementBy: 10}));
 
 store.dispatch(reset());
 
-store.dispatch(set({count:-101}));
+store.dispatch(set({expenseCount:-101}));
