@@ -16,7 +16,7 @@ module.exports = (env) => {
 //  entry: './src/playground/typescript-101.tsx',
     entry: './src/app.js',
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
     },
     module: {
@@ -63,7 +63,8 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true, // Ensures index.html is served for all 404's
-      port: 1234
+      port: 1234,
+      publicPath: `/dist/`
     }
     //devtool: "cheap-module-eval-source-map"
   }

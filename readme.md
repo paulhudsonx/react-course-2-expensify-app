@@ -9,6 +9,10 @@ git remote -v
 
 git push -u origin master
 
+To commit modified only files i.e. without adding new files:
+
+`git commit -a -m ""`
+
 
 To generate public/private rsa key pair:
 
@@ -41,3 +45,36 @@ heroku login
 
 Create a unique heroku app:
 heroku create react-course-2-expensify-ph 
+
+git commit -m "Configure Heroku server"
+
+*Remove npm lockfile, if Heroku complains about 2 lock files:*
+
+`git rm package-lock.json`
+
+`git commit -m "Remove npm lock file"`
+
+`git push heroku master`
+
+To open the app in the browser:
+`heroku open`
+
+To view Heroku logs:
+`heroku logs`
+
+## Regular vs. Development Dependencies
+
+To add dependency to development:
+
+`yarn add chalk --dev`
+
+Install node modules for production only:
+
+`yarn install --production`
+
+## Dev / Prod Server
+
+`yarn run start`
+
+
+
