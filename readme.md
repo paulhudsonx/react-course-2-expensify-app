@@ -77,4 +77,9 @@ Install node modules for production only:
 `yarn run start`
 
 
+Run the Jest test suite:
+
+`yarn run dev-server`
+`yarn test -- --watch`
+
 

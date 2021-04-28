@@ -1,7 +1,7 @@
-import { addExpense, onRemove, updateExpense} from "../../actions/expenses";
+import { addExpense, removeExpense, updateExpense} from "../../actions/expenses";
 
 test("should setup remove expense action", () => {
-  const action = onRemove({id: "123abc"});
+  const action = removeExpense({id: "123abc"});
 
   expect(action).toEqual({
     type: 'REMOVE_EXPENSE',
