@@ -84,6 +84,13 @@ Run the Jest test suite:
 
 ##Firebase Setup
 
-yarn add firebase@4.2.0
+yarn add firebase@4.2.0  // Don't use this - use latest firebase@8.4.2
+
+
+## Redux Thunk
+
+Middleware that allows redux to dispatch a function
+
+yarn add redux-thunk@2.2.0
 
 
