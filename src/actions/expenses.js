@@ -1,4 +1,4 @@
-import firebase from "../firebase/firebase";
+import database from "../firebase/firebase";
 
 // Component calls action generator
 // Action generator returns object
@@ -10,7 +10,7 @@ import firebase from "../firebase/firebase";
 // Component dispatches object
 // Redux store changes
 
-const addExpense = (expense) => ({
+export const addExpense = (expense) => ({
   type: "ADD_EXPENSE",
   expense,
 });
@@ -26,8 +26,8 @@ export const startAddExpense = (expenseData = {}) => {
 
     const expense = { description, note, amount, createdAt };
 
-    firebase
-      .database()
+    // return value is promise chain return value
+    const result = database
       .ref("expenses")
       .push(expense)
       .then((ref) => {
@@ -38,6 +38,8 @@ export const startAddExpense = (expenseData = {}) => {
           })
         );
       });
+    console.log(result);
+    return result;
   };
 };
 
