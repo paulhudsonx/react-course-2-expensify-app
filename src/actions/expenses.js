@@ -57,3 +57,34 @@ export const updateExpense = ({ id } = {}, updates) => {
     updates,
   };
 };
+
+// SET_EXPENSES
+export const setExpenses = (expenses) => ({
+  type: "SET_EXPENSES",
+  expenses,
+});
+
+/*
+ * Fetches expense data from Firebase and sets them on the Redux store
+ */
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    // return value is promise chain return value
+    const result = database
+      .ref("expenses")
+      .once("value")
+      .then((snapshot) => {
+        const expenses = [];
+
+        snapshot.forEach((childSnapshot) => {
+          expenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+        dispatch(setExpenses(expenses));
+      });
+    console.log(result);
+    return result;
+  };
+};
