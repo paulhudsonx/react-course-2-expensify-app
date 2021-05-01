@@ -12,14 +12,17 @@ const config = {
   measurementId: process.env.MEASUREMENT_ID,
 };
 
-console.log(config);
+//console.log(config);
 
 // Initialize Firebase
 firebase.initializeApp(config);
 
 const database = firebase.database();
-console.log(database);
-export { firebase, database as default };
+//console.log(database);
+
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export { firebase, googleAuthProvider, database as default };
 /*export const expenses = [
   {
     id: "1",

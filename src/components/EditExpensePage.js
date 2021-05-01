@@ -2,12 +2,12 @@ import React from "react";
 
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseFm";
-import { startRemoveExpense, updateExpense } from "../actions/expenses";
+import { startRemoveExpense, startUpdateExpense } from "../actions/expenses";
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expense) => {
     console.log(expense);
-    this.props.updateExpense({ id: this.props.expense.id }, expense);
+    this.props.startUpdateExpense({ id: this.props.expense.id }, expense);
     this.props.history.push("/");
     console.log(`onSubmit called!`);
   };
@@ -40,6 +40,7 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps, { updateExpense, startRemoveExpense })(
-  EditExpensePage
-);
+export default connect(mapStateToProps, {
+  startUpdateExpense,
+  startRemoveExpense,
+})(EditExpensePage);

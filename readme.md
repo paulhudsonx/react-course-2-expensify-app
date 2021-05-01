@@ -116,3 +116,8 @@ Command line to configure Heroku environment:
 
 `heroku config:set FIREBASE_API_KEY=AIzaSyAmAHOYNl5zOIp462aNZ-LnscX8Ad3DcsM FIREBASE_AUTH_DOMAIN=expensify-app2-dba52.firebaseapp.com FIREBASE_DATABASE_URL=https://expensify-app2-dba52-default-rtdb.firebaseio.com FIREBASE_PROJECT_ID=expensify-app2-dba52 FIREBASE_STORAGE_BUCKET=expensify-app2-dba52.appspot.com FIREBASE_MESSAGING_SENDER_ID=110391854619 FIREBASE_APP_ID=1:110391854619:web:4dcdb8cea78005f93d9abe FIREBASE_MEASUREMENT_ID=G-F2EH3M1X7V`
 
+## History
+Component to provide access to browser history
+
+yarn add history@4.7.2
+

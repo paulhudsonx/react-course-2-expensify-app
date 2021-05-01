@@ -1,73 +1,75 @@
-import React from 'react';
-import moment from 'moment';
-import {SingleDatePicker} from 'react-dates';
+import React from "react";
+import moment from "moment";
+import { SingleDatePicker } from "react-dates";
 
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      description: props.expense ? props.expense.description : '',
-      note: props.expense ? props.expense.note : '',
-      amount: props.expense ? (props.expense.amount / 100).toString() : '',
+      description: props.expense ? props.expense.description : "",
+      note: props.expense ? props.expense.note : "",
+      amount: props.expense ? (props.expense.amount / 100).toString() : "",
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
-      error: ""
+      error: "",
     };
   }
 
   onDescriptionChange = (e) => {
     const description = e.target.value;
-    this.setState(() => ({description}));
+    this.setState(() => ({ description }));
   };
 
   onNoteChange = (e) => {
     const note = e.target.value;
-    this.setState(() => ({note}));
+    this.setState(() => ({ note }));
   };
 
   onAmountChange = (e) => {
     const amount = e.target.value;
     console.log(`Amount [${amount}]`);
     if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
-      this.setState(() => ({amount}));
+      this.setState(() => ({ amount }));
     }
-  }
+  };
 
   onDateChange = (createdAt) => {
     if (createdAt) {
       console.log("OnDateChange +++");
       console.log(createdAt);
       console.log(createdAt.valueOf());
-      this.setState(() => ({createdAt}));
+      this.setState(() => ({ createdAt }));
       console.log("OnDateChange ---");
     }
-  }
+  };
 
-  onFocusChange = ({focused}) => {
-  console.log(`Focused [${focused}]`);
-    this.setState(() => ({calendarFocused: focused}));
-  }
+  onFocusChange = ({ focused }) => {
+    console.log(`Focused [${focused}]`);
+    this.setState(() => ({ calendarFocused: focused }));
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
 
     if (!this.state.description || !this.state.amount) {
-      this.setState(() => ({error: "Please enter an amount and a description."}));
+      this.setState(() => ({
+        error: "Please enter an amount and a description.",
+      }));
     } else {
-      this.setState(() => ({error: ""}));
+      this.setState(() => ({ error: "" }));
       console.log("Submitting createAt +++");
-      console.log(this.state.createdAt);
-      console.log(this.state.createdAt.valueOf());
+      //console.log(this.state.createdAt);
+      //console.log(this.state.createdAt.valueOf());
       console.log("Submitting createAt ---");
       this.props.onSubmit({
         description: this.state.description,
         amount: parseFloat(this.state.amount) * 100,
         createdAt: this.state.createdAt.valueOf(),
-        note: this.state.note
+        note: this.state.note,
       });
     }
-  }
+  };
 
   render() {
     return (
@@ -104,7 +106,7 @@ class ExpenseForm extends React.Component {
         </form>
         Expense Form
       </div>
-    )
+    );
   }
 }
 

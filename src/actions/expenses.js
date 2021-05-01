@@ -16,7 +16,8 @@ export const addExpense = (expense) => ({
 });
 
 export const startAddExpense = (expenseData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       description = "",
       note = "",
@@ -28,7 +29,7 @@ export const startAddExpense = (expenseData = {}) => {
 
     // return value is promise chain return value
     const result = database
-      .ref("expenses")
+      .ref(`users/${uid}/expenses`)
       .push(expense)
       .then((ref) => {
         dispatch(
@@ -50,9 +51,11 @@ export const removeExpense = ({ id } = {}) => ({
 });
 
 export const startRemoveExpense = ({ id } = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
     return database
-      .ref(`expenses/${id}`)
+      .ref(`users/${uid}/expenses/${id}`)
       .remove()
       .then((ref) => {
         dispatch(removeExpense({ id }));
@@ -69,6 +72,19 @@ export const updateExpense = ({ id } = {}, updates) => {
   };
 };
 
+export const startUpdateExpense = ({ id } = {}, updates) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database
+      .ref(`users/${uid}/expenses/${id}`)
+      .update(updates)
+      .then((ref) => {
+        dispatch(updateExpense({ id }, updates));
+      });
+  };
+};
+
 // SET_EXPENSES
 export const setExpenses = (expenses) => ({
   type: "SET_EXPENSES",
@@ -79,10 +95,12 @@ export const setExpenses = (expenses) => ({
  * Fetches expense data from Firebase and sets them on the Redux store
  */
 export const startSetExpenses = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
     // return value is promise chain return value
     const result = database
-      .ref("expenses")
+      .ref(`users/${uid}/expenses`)
       .once("value")
       .then((snapshot) => {
         const expenses = [];
