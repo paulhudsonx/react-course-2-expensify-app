@@ -121,3 +121,14 @@ Component to provide access to browser history
 
 yarn add history@4.7.2
 
+## Browser Stack $$$
+
+Tool to allow you simulate any browser on any OS.
+
+## Babel Polyfill
+
+Allows support for older browsers
+
+yarn add babel-polyfill@6.26.0
+
+

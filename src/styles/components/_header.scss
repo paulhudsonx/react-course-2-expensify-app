@@ -1,0 +1,18 @@
+.header {
+  background: $dark-blue;
+}
+
+.header__content {
+  align-items: center; // Items aligned vertically
+  display: flex; // Distribute content left to right
+  justify-content: space-between; // Distribute leftover space i.e. between title & button
+  padding: $s-size 0; // Top & bottom $s-size - left & right 0
+}
+
+.header__title {
+  color: white;
+  text-decoration: none;
+  h1 {
+    margin: 0;
+  }
+}

@@ -1,0 +1,28 @@
+.button {
+  background: $blue;
+  border: none;
+  color: white;
+  display: inline-block; // Vertical margin and padding taken into effect
+  font-size: $font-size-large;
+  font-weight: 300;
+  line-height: 1; // Button text is always going to sit on one line esp. when making a link look like a button
+  padding: $s-size;
+  text-decoration: none; // Remove underline from button (i.e.) when making a link look like a button
+
+//  &--link {
+//    @extend .button;
+//    background: none;
+//  }
+}
+
+// Button modifier - alternative syntax
+.button--link {
+  @extend .button;
+  background: none;
+}
+
+.button--secondary {
+  @extend .button;
+  background: #888888;
+}
+
