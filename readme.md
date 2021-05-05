@@ -131,4 +131,16 @@ Allows support for older browsers
 
 yarn add babel-polyfill@6.26.0
 
+## Create React App
+npm i -g create-react-app@2.1.8
+
+create-react-app react-new-features  // Didn't create src & public folders
+npm start
+
+##Yarn is better:
+
+`yarn create react-app react-new-features`
+`yarn start`
+
+Eslint - see free course at mead.io/blog
 
